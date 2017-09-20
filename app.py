@@ -8,8 +8,8 @@ from neo4j.v1 import GraphDatabase, basic_auth
 
 app = Flask(__name__)
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j","1234"))
-session = driver.session()
+#driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j","1234"))
+#session = driver.session()
 
 with open('static/data/vocabulary.json', 'r') as f:
     vocabulary = json.load(f)
