@@ -15,17 +15,25 @@ def index():
 
 #[ARTICLES CRUD]
 
-@app.route('/')
-def index():
+@app.route('/articles', method = ['GET'])
+def app_root():
     return "Welcome! You are now Connected to the WRI system."
 
-@app.route('/')
-def index():
-    return "Welcome! You are now Connected to the WRI system."
+@app.route('/articles/<int:articleid>', method = ['GET'])
+def get_all_articles():
+    return "You just load all articles"
 
-@app.route('/')
-def index():
-    return "Welcome! You are now Connected to the WRI system."
+@app.route('/articles', method = ['POST'])
+def add_article():
+    return "You just post an article"
+
+@app.route('/articles/<int:articleid>', method = ['PUT'])
+def update_one_article():
+    return "You just update one article"
+
+@app.route('/articles/<int:articleid>', method = ['DELETE'])
+def delete_article():
+    return "ATTENTION, You just delete one article"
 
 # [END ARTICLES CRUD]
 
