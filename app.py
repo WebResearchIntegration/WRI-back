@@ -8,9 +8,27 @@ from neo4j.v1 import GraphDatabase, basic_auth
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return "Welcome! You are now Connected to the WRI system."
 
+#[ARTICLES CRUD]
+
+@app.route('/')
+def index():
+    return "Welcome! You are now Connected to the WRI system."
+
+@app.route('/')
+def index():
+    return "Welcome! You are now Connected to the WRI system."
+
+@app.route('/')
+def index():
+    return "Welcome! You are now Connected to the WRI system."
+
+# [END ARTICLES CRUD]
+
+#[RUN APP]
 if __name__ == "__main__":
     app.run()
