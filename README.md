@@ -140,3 +140,7 @@ Everything here is subjet to change but there are additional features that I wou
 - An article reference manager to easily associate articles amongst themselves through their ids without having to manually do so.
 - Allow user to access his or her account via a login and password to provide security of information and multiple accounts
 - Maybe make it all responsive for accessing via a smartphone or tablet...
+
+# DOWNLOAD
+
+# INSTALL
