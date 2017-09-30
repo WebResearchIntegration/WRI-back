@@ -22,6 +22,7 @@ def index():
 
 @app.route('/articles', methods = ['GET'])
 def app_root():
+    
     return "You just got all articles loaded."
 
 @app.route('/articles/<int:articleid>', methods = ['GET'])
@@ -30,6 +31,8 @@ def get_all_articles(articleid):
 
 @app.route('/articles', methods = ['POST'])
 def add_article():
+    articleToAdd = gdb.node()
+    articleToAdd.labels.add("Article")
     return "You just post an article"
 
 @app.route('/articles/<int:articleid>', methods = ['PUT'])
