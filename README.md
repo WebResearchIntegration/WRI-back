@@ -143,4 +143,53 @@ Everything here is subjet to change but there are additional features that I wou
 
 # DOWNLOAD
 
+First you must git clone the project
+
+```shell
+git clone 
+```
+
+Next you must install:
+
+- Python
+- pip (python package manager)
+- flask
+- neo4j
+- JAVA 8 (for neo4j compatibility)
+
 # INSTALL
+
+To install the depedencies:
+
+```shell
+pip install -r requirements.txt
+```
+When you'll have everything you must specify the app path to the env variable:
+
+```shell
+export FLASK_APP=hello.py
+```
+
+
+# LAUNCH
+To start you'll have to configure **neo4j** database with name of the db and the password.
+
+First you must launch NEO4J:
+
+```
+neo4j start
+```
+---
+To stop:
+
+```
+neo4j stop
+```
+
+To launch the API:
+
+```
+flask run
+```
+
+API is now available on port  http://127.0.0.1:5000/
