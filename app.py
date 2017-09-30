@@ -14,8 +14,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    session.run("CREATE (a:Person {name: {name}, title: {title}})",{"name": "Arthur", "title": "King"})
-    return "Welcome! You are now Connected to the WRI system."
+    element = session.run("MATCH (n) WHERE n.name ='Arthur' RETURN n")
+    session.close()
+    return "Welcome! You are now Connected to the WRI system." 
 
 #[ARTICLES CRUD]
 
