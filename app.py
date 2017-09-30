@@ -4,19 +4,19 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, Markup
 import json, os, numpy, markdown
 import dblp, pandas as pd
-from neo4j.v1 import GraphDatabase, basic_auth
+from neo4jrestclient.client import GraphDatabase
 
-driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "root"))
-session = driver.session()
+gdb = GraphDatabase("http://localhost:7474", username="neo4j", password="root")
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    element = session.run("MATCH (n) WHERE n.name ='Arthur' RETURN n")
-    session.close()
-    return "Welcome! You are now Connected to the WRI system." 
+    query = "MATCH (n) WHERE n.name ='Arthur' RETURN n"
+    results = gdb.query(query, data_contents=True)
+    element = { "el": results.rows }
+    return jsonify(element) 
 
 #[ARTICLES CRUD]
 
