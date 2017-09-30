@@ -6,3 +6,4 @@ Markdown==2.6.8
 MarkupSafe==0.23
 numpy==1.12.1
 Werkzeug==0.12.1
+neo4jrestclient==2.0.4
