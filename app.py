@@ -6,11 +6,15 @@ import json, os, numpy, markdown
 import dblp, pandas as pd
 from neo4j.v1 import GraphDatabase, basic_auth
 
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "root"))
+session = driver.session()
+
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
+    session.run("CREATE (a:Person {name: {name}, title: {title}})",{"name": "Arthur", "title": "King"})
     return "Welcome! You are now Connected to the WRI system."
 
 #[ARTICLES CRUD]
