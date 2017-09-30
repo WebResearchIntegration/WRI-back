@@ -167,7 +167,7 @@ pip install -r requirements.txt
 When you'll have everything you must specify the app path to the env variable:
 
 ```shell
-export FLASK_APP=hello.py
+export FLASK_APP=app.py
 ```
 
 
