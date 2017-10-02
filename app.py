@@ -20,9 +20,9 @@ def index():
 
 @app.route('/articles', methods = ['GET'])
 def get_all_articles():
-    articles = ArticlesController().get_all()
+    articles = { "articles": ArticlesController().get_all() }
     print articles
-    return "You just got all articles loaded."
+    return jsonify(articles)
 
 @app.route('/articles/<int:articleid>', methods = ['GET'])
 def get_one_article(articleid):
