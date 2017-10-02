@@ -28,7 +28,6 @@ class Article():
 
     # TODO:: Finish to put values inside 
     def save(self):
-        print "here"
         if self.node is None:
             self.node = gdb.nodes.create(title=self.title, year=self.year, user_score=self.user_score, authors=self.authors)
             self.node.labels.add('Article')
