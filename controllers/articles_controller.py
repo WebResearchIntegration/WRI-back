@@ -5,6 +5,7 @@ import json
 from config.graphDB import ConnectDatabase
 from models.article import Article
 
+# Connect current database with controller
 gdb = ConnectDatabase().gdb
 
 # This is the Controller class file of articles
@@ -29,6 +30,7 @@ class ArticlesController():
         return articles_to_return
     
     def create_article(self, data):
+        print data
         return ""
 
     def update_article(self, articleId, data):

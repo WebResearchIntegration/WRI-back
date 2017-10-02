@@ -3,6 +3,7 @@
 from neo4jrestclient.client import GraphDatabase
 from config.graphDB import ConnectDatabase
 
+# Connect current database with model
 gdb = ConnectDatabase().gdb
 
 # This is the class file of articles models
