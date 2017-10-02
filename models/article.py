@@ -23,7 +23,15 @@ class Article():
         self.read = read
 
         # Node Element properties
-        self.node = gdb.nodes.create(title=self.title)
-        self.node.labels.add('Article')
+        self.node = None
+
+    def save(self):
+        if self.node is None:
+            self.node = gdb.nodes.create(title=self.title)
+        else:
+            self.node = gdb.nodes.create(title=self.title)
+            self.node.labels.add('Article')    
         
+        
+    
 

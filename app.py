@@ -12,25 +12,16 @@ gdb = ConnectDatabase().gdb
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    title = "Marc is the best"
-    date = "19/05/1990"
-    userScore = 4
-    authors = "Yvan"
-    article = Article(title, date, userScore, authors)
-    articleLabel = gdb.labels.get("Article")
-    element = articleLabel.all()
-    #element = {"array" : articleLabel.all().stats}
-    print element
-    return jsonify(element) 
+    return "OK"
 
 #[ARTICLES CRUD]
 
 @app.route('/articles', methods = ['GET'])
 def app_root():
-    
+    el = gdb.labels.get('Article')
+    print el
     return "You just got all articles loaded."
 
 @app.route('/articles/<int:articleid>', methods = ['GET'])
