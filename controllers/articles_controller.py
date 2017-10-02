@@ -31,7 +31,9 @@ class ArticlesController():
     
     def create_article(self, data):
         print data
-        return ""
+        article_to_create = Article(data[0]['title'], data[0]['year'], data[0]['user_score'], data[0]['authors'])
+        article_to_create.save()
+        return article_to_create.node.properties
 
     def update_article(self, articleId, data):
         return ""
