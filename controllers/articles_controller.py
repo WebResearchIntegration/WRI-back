@@ -12,9 +12,9 @@ gdb = ConnectDatabase().gdb
 class ArticlesController():
 
     def get_one_article(self, articleId):
-        article = gdb.nodes.get(articleId)
-        print article.id
-        print type(article)
+        node = gdb.nodes.get(articleId)
+        article = node.properties
+        article['id'] = node.id
         return article
     
     def get_all(self):
@@ -23,7 +23,9 @@ class ArticlesController():
 
         for article in articles:
             print json.dumps(dict(article.items()))
-            articles_to_return.append((article.properties))
+            tmp_article = article.properties
+            tmp_article['id'] = article.id
+            articles_to_return.append(tmp_article)
         return articles_to_return
     
     def create_article(self, data):

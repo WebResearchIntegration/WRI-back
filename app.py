@@ -28,7 +28,7 @@ def get_all_articles():
 def get_one_article(articleid):
     article = ArticlesController().get_one_article(articleid)
     print article
-    return "You just load one article"
+    return jsonify(article)
 
 @app.route('/articles', methods = ['POST'])
 def add_article():
