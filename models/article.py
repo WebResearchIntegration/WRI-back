@@ -8,19 +8,19 @@ gdb = ConnectDatabase().gdb
 # This is the class file of articles models
 
 class Article():
-    def __init__(self, article):
-        self.title = article.title
-        self.conference = article.conference
-        self.journal = article.journal
-        self.year = article.year
-        self.user_score = article.user_score
-        self.authors = article.authors
-        self.keywords = article.keywords
-        self.references = article.references
-        self.notes = article.title
-        self.saved = article.saved
-        self.printed = article.printed
-        self.read = article.read
+    def __init__(self, title, year, user_score, authors,  conference = "", journal = "", keywords = [], references = [], notes = [], saved = False, printed = False, read = False):
+        self.title = title
+        self.conference = conference
+        self.journal = journal
+        self.year = year
+        self.user_score = user_score
+        self.authors = authors
+        self.keywords = keywords
+        self.references = references
+        self.notes = notes
+        self.saved = saved
+        self.printed = printed
+        self.read = read
 
         # Node Element properties
         self.node = gdb.nodes.create(title=self.title)
