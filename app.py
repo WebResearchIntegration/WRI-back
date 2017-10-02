@@ -4,9 +4,10 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, Markup
 import json, os, numpy, markdown
 import dblp, pandas as pd
+from config.graphDB import ConnectDatabase
 from neo4jrestclient.client import GraphDatabase
 
-gdb = GraphDatabase("http://localhost:7474", username="neo4j", password="root")
+gdb = ConnectDatabase().gdb
 
 app = Flask(__name__)
 
