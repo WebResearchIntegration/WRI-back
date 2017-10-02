@@ -20,12 +20,11 @@ def index():
 
 @app.route('/articles', methods = ['GET'])
 def app_root():
-    el = gdb.labels.get('Article')
-    print el
     return "You just got all articles loaded."
 
 @app.route('/articles/<int:articleid>', methods = ['GET'])
 def get_all_articles(articleid):
+
     return "You just load one article"
 
 @app.route('/articles', methods = ['POST'])
