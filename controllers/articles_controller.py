@@ -4,7 +4,7 @@ from neo4jrestclient.client import GraphDatabase
 import json
 from config.graphDB import ConnectDatabase
 from models.article import Article
-from flask import jsonify
+
 gdb = ConnectDatabase().gdb
 
 # This is the Controller class file of articles
