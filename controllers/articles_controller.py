@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from neo4jrestclient.client import GraphDatabase
+import json
 from config.graphDB import ConnectDatabase
 from models.article import Article
 
@@ -12,7 +13,7 @@ class ArticlesController():
 
     def get_one_article(self, articleId):
         article = gdb.nodes.get(articleId)
-        print article
+        print json.dumps(article.stats, ensure_ascii=False)
         return article
     
     def get_all(self):
