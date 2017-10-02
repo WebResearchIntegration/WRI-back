@@ -35,7 +35,10 @@ class ArticlesController():
         return ""
 
     def delete_article(self, articleId):
-        return ""
+        node = gdb.nodes.get(articleId)
+        article_deleted = node.properties
+        node.delete()
+        return article_deleted
     
 
         

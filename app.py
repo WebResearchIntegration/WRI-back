@@ -45,7 +45,7 @@ def update_one_article(articleid):
 @app.route('/articles/<int:articleid>', methods = ['DELETE'])
 def delete_article(articleid):
     article = ArticlesController().delete_article(articleid)
-    return "ATTENTION, You just delete one article"
+    return jsonify(article)
 
 # [END ARTICLES CRUD]
 
