@@ -30,8 +30,8 @@ def get_all_articles(articleid):
 
 @app.route('/articles', methods = ['POST'])
 def add_article():
-    articleToAdd = gdb.node()
-    articleToAdd.labels.add("Article")
+    articleToAdd = Article("Sample", "Demain", "TEST", "None")
+    articleToAdd.save()
     return "You just post an article"
 
 @app.route('/articles/<int:articleid>', methods = ['PUT'])
