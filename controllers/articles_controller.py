@@ -13,11 +13,19 @@ class ArticlesController():
 
     def get_one_article(self, articleId):
         article = gdb.nodes.get(articleId)
-        print json.dumps(article.stats, ensure_ascii=False)
+        print article.id
+        print type(article)
         return article
     
     def get_all(self):
-        return ""
+        articles = (gdb.labels.get('Article')).all()
+        articles_to_return = []
+
+        for article in articles:
+            print "LOAD ARTICLES FROM MODEL"
+            print json.dumps(dict(article.items()))
+            articles_to_return.append(json.dumps(dict(article.items())))
+        return articles_to_return
     
     def create_article(self, data):
         return ""
