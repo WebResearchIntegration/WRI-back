@@ -14,9 +14,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    query = "MATCH (n) WHERE n.name ='Arthur' RETURN n"
-    results = gdb.query(query, data_contents=True)
-    element = { "el": results.rows }
+    
     return jsonify(element) 
 
 #[ARTICLES CRUD]
