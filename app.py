@@ -1,47 +1,51 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from controllers.articles_controller import ArticlesController
 from flask import Flask, render_template, request, redirect, url_for, jsonify, Markup
 import json, os, numpy, markdown
 import dblp, pandas as pd
+from config.graphDB import ConnectDatabase
 from neo4jrestclient.client import GraphDatabase
 
-gdb = GraphDatabase("http://localhost:7474", username="neo4j", password="root")
+gdb = ConnectDatabase().gdb
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    query = "MATCH (n) WHERE n.name ='Arthur' RETURN n"
-    results = gdb.query(query, data_contents=True)
-    element = { "el": results.rows }
-    return jsonify(element) 
+    return "OK"
 
 #[ARTICLES CRUD]
 
 @app.route('/articles', methods = ['GET'])
-def app_root():
-    
-    return "You just got all articles loaded."
+def get_all_articles():
+    articles = { "articles": ArticlesController().get_all() }
+    print articles
+    return jsonify(articles)
 
 @app.route('/articles/<int:articleid>', methods = ['GET'])
-def get_all_articles(articleid):
-    return "You just load one article"
+def get_one_article(articleid):
+    article = ArticlesController().get_one_article(articleid)
+    print article
+    return jsonify(article)
 
 @app.route('/articles', methods = ['POST'])
 def add_article():
-    articleToAdd = gdb.node()
-    articleToAdd.labels.add("Article")
+    article = ArticlesController().create_article(request.data)
+    print article
     return "You just post an article"
 
 @app.route('/articles/<int:articleid>', methods = ['PUT'])
 def update_one_article(articleid):
+    article = ArticlesController().update_article(articleid, request.data)
+    print article
     return "You just update one article"
 
 @app.route('/articles/<int:articleid>', methods = ['DELETE'])
 def delete_article(articleid):
-    return "ATTENTION, You just delete one article"
+    article = ArticlesController().delete_article(articleid)
+    return jsonify(article)
 
 # [END ARTICLES CRUD]
 
